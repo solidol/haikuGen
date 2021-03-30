@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#parts td{
+			width: 2.5em;
+			height: 1em;
+			border: 1px solid black;
+			text-align: center;
+		}
+		#parts tr{
+			background-color: #f0e3a5;
+		}
+		table#parts{
+			margin: auto;
+		}
+		textarea#inptext{
+			width: 30em;
+			height: 5em;
+		}
+		.row{
+			margin: auto;
+		}
+		body{
+			text-align: center;
+			padding: auto;
+		}
+	</style>
+</head>
+<body>
+	<div class="row">
+		Регулярний вираз налаштовано під український алфавіт. Обробляються схеми 12 + 5, 5 + 12, 5 + 7 + 5.
+	</div>
+	<div class="row">
+		<textarea id="inptext"></textarea>
+	</div>
+	<div class="row">
+
+	</div>
+	<div class="row">
+		<table id="parts">
+			<tr id="hd1">
+				<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+				<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+			</tr>
+			<tr id="str1">
+				<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+				<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+			</tr>
+			<tr id="hd2">
+				<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+				<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+			</tr>
+			<tr id="str2">
+				<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+				<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+			</tr>
+			<tr id="hd3">
+				<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+				<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+			</tr>
+			<tr id="str3">
+				<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+				<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+			</tr>
+
+		</table>
+	</div>
+	<div class="row">
+		V 0.1 Levytskyi Viktor (c)
+	</div>
+
+	<script type="text/javascript">
+		inptext.onkeyup = function(){
+
+			for (var i = 15 - 1; i >= 0; i--) {
+				str1.cells[i].innerHTML='.';
+				str2.cells[i].innerHTML='.';
+				str3.cells[i].innerHTML='.';
+				hd1.cells[i].innerHTML='-';
+				hd2.cells[i].innerHTML='-';
+				hd3.cells[i].innerHTML='-';
+			}	
+
+			let stringArray = document.getElementById('inptext').value.split('\n');
+
+			if (!stringArray[0]) stringArray[0]='';
+			if (!stringArray[1]) stringArray[1]='';
+			if (!stringArray[2]) stringArray[2]='';
+
+			let line1 = stringArray[0].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
+			let line2 = stringArray[1].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
+			let line3 = stringArray[2].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
+
+let sch1 = false; // 12 + 5
+let sch2 = false; // 5 + 12
+let sch3 = false; // 5 + 7 + 5
+
+if (line1.length==12 && line2.length==5 && line3.length==0) sch1 = true;
+if (line1.length==5 && line2.length==12 && line3.length==0) sch2 = true;
+if (line1.length==5 && line2.length==7 && line3.length==5) sch3 = true;
+
+
+if (sch1 ^ sch2 ^ sch3){
+	str1.style="background-color: #d1f0a5";
+	str2.style="background-color: #d1f0a5";
+	str3.style="background-color: #d1f0a5";
+}else{
+	str1.style="background-color: #f0e3a5";
+	str2.style="background-color: #f0e3a5";
+	str3.style="background-color: #f0e3a5";
+}
+
+
+for (var i = line1.length - 1; i >= 0; i--) {
+	str1.cells[i].innerHTML=line1[i];
+	hd1.cells[i].innerHTML=i+1;
+}
+for (var i = line2.length - 1; i >= 0; i--) {
+	str2.cells[i].innerHTML=line2[i];
+	hd2.cells[i].innerHTML=i+1;
+}
+for (var i = line3.length - 1; i >= 0; i--) {
+	str3.cells[i].innerHTML=line3[i];
+	hd3.cells[i].innerHTML=i+1;
+}
+
+};
+
+</script>
+</body>
+</html>

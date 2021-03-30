@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		td{
+			width: 2.5em;
+			height: 1em;
+			border: 1px solid black;
+			text-align: center;
+		}
+		table{
+			margin: auto;
+		}
+		textarea{
+			width: 30em;
+			height: 5em;
+			margin: auto;
+		}
+		body{
+			text-align: center;
+			padding: auto;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="inptext"></textarea>
+	<table>
+		<tr id="hd1">
+			<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+			<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+		</tr>
+		<tr id="str1">
+			<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+			<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+		</tr>
+		<tr id="hd2">
+			<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+			<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+		</tr>
+		<tr id="str2">
+			<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+			<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+		</tr>
+		<tr id="hd3">
+			<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+			<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+		</tr>
+		<tr id="str3">
+			<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+			<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+		</tr>
+
+	</table>
+<script type="text/javascript">
+inptext.onkeyup = function(){
+
+for (var i = 15 - 1; i >= 0; i--) {
+	str1.cells[i].innerHTML='.';
+	str2.cells[i].innerHTML='.';
+	str3.cells[i].innerHTML='.';
+	hd1.cells[i].innerHTML='-';
+	hd2.cells[i].innerHTML='-';
+	hd3.cells[i].innerHTML='-';
+}	
+
+let stringArray = document.getElementById('inptext').value.split('\n');
+
+if (!stringArray[0]) stringArray[0]=''
+if (!stringArray[1]) stringArray[1]=''
+if (!stringArray[2]) stringArray[2]=''
+
+let line1 = stringArray[0].match(/[ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*[ЁУЕЫАОЭЯИЮ][ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЁ]|[ЦКНГШЩЗХФВПРЛДЖЧСМТБ]?[ЁУЕЫАОЭЯИЮ]|Й[АИУЕО])/ig) || [];
+let line2 = stringArray[1].match(/[ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*[ЁУЕЫАОЭЯИЮ][ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЁ]|[ЦКНГШЩЗХФВПРЛДЖЧСМТБ]?[ЁУЕЫАОЭЯИЮ]|Й[АИУЕО])/ig) || [];
+let line3 = stringArray[2].match(/[ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*[ЁУЕЫАОЭЯИЮ][ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЁ]|[ЦКНГШЩЗХФВПРЛДЖЧСМТБ]?[ЁУЕЫАОЭЯИЮ]|Й[АИУЕО])/ig) || [];
+if (line1.length==5) str1.style="background-color: #d1f0a5";
+else str1.style="background-color: #f0e3a5";
+if (line2.length==7) str2.style="background-color: #d1f0a5";
+else str2.style="background-color: #f0e3a5";
+if (line3.length==5) str3.style="background-color: #d1f0a5";
+else str3.style="background-color: #f0e3a5";
+for (var i = line1.length - 1; i >= 0; i--) {
+	str1.cells[i].innerHTML=line1[i];
+	hd1.cells[i].innerHTML=i+1;
+}
+for (var i = line2.length - 1; i >= 0; i--) {
+	str2.cells[i].innerHTML=line2[i];
+	hd2.cells[i].innerHTML=i+1;
+}
+for (var i = line3.length - 1; i >= 0; i--) {
+	str3.cells[i].innerHTML=line3[i];
+	hd3.cells[i].innerHTML=i+1;
+}
+
+};
+
+</script>
+</body>
+</html>
