@@ -26,15 +26,33 @@
 			text-align: center;
 			padding: auto;
 		}
+
+
+		canvas { 
+			width:500px;
+			height:500px;
+		}
+
+
 	</style>
 </head>
 <body>
 	<div class="row">
 		Регулярний вираз налаштовано під український алфавіт. Обробляються схеми 12 + 5, 5 + 12, 5 + 7 + 5.
 	</div>
-	<div class="row">
-		<textarea id="inptext"></textarea>
-	</div>
+	<form class="row">
+		<div>
+			<textarea id="inptext"></textarea>
+		</div>
+		<div>
+			<input type="text" name="cr" id="cr" value="Viktor Levytskyi">
+		</div>
+		<div>
+			<button type="button" id="render">Зберегти</button>
+		</div>
+		
+		
+	</form>
 	<div class="row">
 
 	</div>
@@ -68,10 +86,42 @@
 		</table>
 	</div>
 	<div class="row">
+		<canvas id="canvasRes"></canvas>
+	</div>
+	<div class="row">
 		V 0.1 Levytskyi Viktor (c)
 	</div>
 
 	<script type="text/javascript">
+
+		let stringArray = [];
+
+		render.onclick = function()
+		{
+			console.log("111");
+			canvas = document.getElementById("canvasRes");
+			context = canvas.getContext("2d");
+			imgBg = new Image(500,500);
+			imgBg.onload = function() 
+			{
+				canvas.width = this.naturalWidth;
+				canvas.height = this.naturalHeight;
+				context.drawImage(this, 0, 0);
+				context.drawImage(this, 0, 0, this.width, this.height);
+
+							context.textBaseline = "top";
+			context.font = "36px Arial";
+			context.fillStyle = "black";
+			context.fillText(stringArray[0], 70, 80);
+			context.fillText(stringArray[1], 110, 130);
+			context.fillText(stringArray[2], 160, 180);
+			context.font = "bold 16px Arial";
+			context.fillStyle = "normal";
+			context.fillText("© "+cr.value, 320, 460);
+			};	
+			imgBg.src = "bg/1.jpg";
+
+		}
 		inptext.onkeyup = function(){
 
 			for (var i = 15 - 1; i >= 0; i--) {
@@ -83,7 +133,7 @@
 				hd3.cells[i].innerHTML='-';
 			}	
 
-			let stringArray = document.getElementById('inptext').value.split('\n');
+			stringArray = document.getElementById('inptext').value.split('\n');
 
 			if (!stringArray[0]) stringArray[0]='';
 			if (!stringArray[1]) stringArray[1]='';
