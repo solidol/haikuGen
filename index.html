@@ -78,7 +78,10 @@
 						<small id="emailHelp" class="form-text text-muted">Підпис буде доданий внизу</small>
 					</div>
 
-
+					<div class="form-group">
+						<label for="cз">Колір тексту</label>
+						<input type="color" name="cp" id="cp" value="#FF0000">
+					</div>
 
 					<button type="button" class="btn btn-primary" id="render">Зберегти</button>
 				</div>
@@ -165,8 +168,11 @@
 			let sch3 = false; // 5 + 7 + 5
 			let imgFilePath = "bg/1.jpg";
 			let canvas = document.getElementById("canvasRes");
+			let fontColor = '#FF0000';
 
-
+			$("#cp").change(function(){
+				fontColor = $(this).val();
+			});
 			$(".bg-preview").on("click", function(){
 				imgFilePath = $(this).attr("src");
 				$("#render").click();
@@ -188,7 +194,7 @@
 					context.textBaseline = "top";
 					if (sch3){
 						context.font = '24px "Han Zi"';
-						context.fillStyle = "#ff0000";
+						context.fillStyle = fontColor;
 						
 						context.fillText(stringArray[0], 50, 80);
 						context.fillText(stringArray[1], 90, 130);
