@@ -44,7 +44,10 @@ function draw() {
 	for (let i = 0; i < texts.length; i++) {
 		let text = texts[i];
 		ctx.font = '24px "Han Zi"';
+		ctx.fillStyle = 'black';
 		ctx.fillText(text.text, text.x, text.y);
+		ctx.fillStyle = 'red';
+		ctx.fillText(text.text[0], text.x, text.y);
 	}
 
 }
@@ -62,7 +65,10 @@ function drawWithImage(){
 	for (let i = 0; i < texts.length; i++) {
 		let text = texts[i];
 		ctx.font = '24px "Han Zi"';
+		ctx.fillStyle = 'black';
 		ctx.fillText(text.text, text.x, text.y);
+		ctx.fillStyle = 'red';
+		ctx.fillText(text.text[0], text.x, text.y);
 	}
 
 
