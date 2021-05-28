@@ -4,55 +4,17 @@
 	<title>HaikuGen</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	<script
 	src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
 	integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
 	crossorigin="anonymous"></script>
-	<style type="text/css">
-		#parts td{
-			width: 2.5em;
-			height: 1em;
-			border: 1px solid black;
-			text-align: center;
-		}
-		#parts tr{
-			background-color: #f0e3a5;
-		}
-		table#parts{
-			margin: auto;
-		}
+	<script type="text/javascript" src="script.js"></script>
 
-
-		body{
-			text-align: center;
-			padding: auto;
-			font-family: "Han Zi";
-		}
-
-		.row-bg-pv{
-			margin: 1em;
-		}
-		.row-bg-pv div{
-			padding: 10px;
-			border: 1px solid grey;
-			border-radius: 3px;
-		}
-		.row-bg-pv img{
-			width: 100%;
-		}
-		@font-face {
-			font-family: "Han Zi"; 
-			src: url("hanzi.ttf") format('truetype'); 
-			font-weight: normal;
-			font-style: normal;
-		}
-
-
-	</style>
 </head>
 <body>
 	<div class="container">
-		
+		<h1>HaikuGen</h1>
 		<form>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
@@ -78,205 +40,86 @@
 						<small id="emailHelp" class="form-text text-muted">Підпис буде доданий внизу</small>
 					</div>
 
-					<div class="form-group">
-						<label for="cз">Колір тексту</label>
+<!--					<div class="form-group">
+						<label for="cp">Колір тексту</label>
 						<input type="color" name="cp" id="cp" value="#FF0000">
 					</div>
-
-					<button type="button" class="btn btn-primary" id="render">Оновити</button>
-				</div>
-
+				-->
+				<button type="button" class="btn btn-primary" id="render">Оновити</button>
 			</div>
-		</form>
-		
-		<div class="row">
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-				<table id="parts" class="table-striped" >
-					<tr id="hd1">
-						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-					</tr>
-					<tr id="str1">
-						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-					</tr>
-					<tr id="hd2">
-						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-					</tr>
-					<tr id="str2">
-						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-					</tr>
-					<tr id="hd3">
-						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-					</tr>
-					<tr id="str3">
-						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-					</tr>
 
-				</table>
-				<div class="container-fluid">
-					<div class="row row-bg-pv">
-						<div class="col-3">
-							<img id="im[0]" class="bg-preview" src="bg/1.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[1]" class="bg-preview" src="bg/2.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[2]" class="bg-preview" src="bg/3.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[3]" class="bg-preview" src="bg/4.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[4]" class="bg-preview" src="bg/5.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[5]" class="bg-preview" src="bg/6.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[6]" class="bg-preview" src="bg/7.jpg">
-						</div>
-						<div class="col-3">
-							<img id="im[7]" class="bg-preview" src="bg/8.jpg">
-						</div>
+		</div>
+	</form>
+
+	<div class="row">
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+			<table id="parts" class="table-striped" >
+				<tr id="hd1">
+					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+				</tr>
+				<tr id="str1">
+					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+				</tr>
+				<tr id="hd2">
+					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+				</tr>
+				<tr id="str2">
+					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+				</tr>
+				<tr id="hd3">
+					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+				</tr>
+				<tr id="str3">
+					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+				</tr>
+
+			</table>
+			<div class="container-fluid">
+				<div class="row row-bg-pv">
+					<div class="col-3">
+						<img id="im[0]" class="bg-preview" src="bg/1.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[1]" class="bg-preview" src="bg/2.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[2]" class="bg-preview" src="bg/3.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[3]" class="bg-preview" src="bg/4.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[4]" class="bg-preview" src="bg/5.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[5]" class="bg-preview" src="bg/6.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[6]" class="bg-preview" src="bg/7.jpg">
+					</div>
+					<div class="col-3">
+						<img id="im[7]" class="bg-preview" src="bg/8.jpg">
 					</div>
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-				<canvas id="canvasRes"></canvas>
-<button type="button" class="btn btn-primary" id="download">Завантажити</button>
-			</div>
 		</div>
-
-		<div class="row">
-			V 0.4 Levytskyi Viktor (c)
+		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+			<canvas id="canvas"></canvas>
+			<button type="button" class="btn btn-primary" id="download">Завантажити</button>
 		</div>
+	</div>
 
-		<script type="text/javascript">
+	<div class="row">
+		V 0.5.1 Levytskyi Viktor (c)
+	</div>
 
-			$(document).ready(function(){
-
-
-				let stringArray = [];
-			let sch1 = false; // 12 + 5
-			let sch2 = false; // 5 + 12
-			let sch3 = false; // 5 + 7 + 5
-			let imgFilePath = "bg/1.jpg";
-			let canvas = document.getElementById("canvasRes");
-			let fontColor = '#FF0000';
-
-
-$("#download").click(function(){
-	  var link = document.createElement('a');
-  link.download = 'filename.png';
-  link.href = document.getElementById('canvasRes').toDataURL()
-  link.click();
-});
-
-
-			$("#cp").change(function(){
-				fontColor = $(this).val();
-			});
-			$(".bg-preview").on("click", function(){
-				imgFilePath = $(this).attr("src");
-				$("#render").click();
-			});
-
-			$("#render").on("click", function()
-			{
-				$("#inptext").keyup();
-				
-				context = canvas.getContext("2d");
-				imgBg = new Image(500,500);
-				imgBg.onload = function() 
-				{
-					canvas.width = this.naturalWidth;
-					canvas.height = this.naturalHeight;
-					context.drawImage(this, 0, 0);
-					context.drawImage(this, 0, 0, this.width, this.height);
-
-					context.textBaseline = "top";
-					if (sch3){
-						context.font = '24px "Han Zi"';
-						context.fillStyle = fontColor;
-						
-						context.fillText(stringArray[0], 50, 80);
-						context.fillText(stringArray[1], 90, 130);
-						context.fillText(stringArray[2], 150, 180);
-					}else{
-						context.font = '18px "Han Zi"';
-						context.fillText(stringArray[0], 20, 80);
-						context.fillText(stringArray[1], 40, 130);					
-					}
-
-					context.font = '14px "Han Zi"';
-					context.fillText(cr.value, 300, 460);
-				};	
-				imgBg.src = imgFilePath;
-
-			});
-			$("#inptext").on("keyup", function(){
-
-				for (var i = 15 - 1; i >= 0; i--) {
-					str1.cells[i].innerHTML='.';
-					str2.cells[i].innerHTML='.';
-					str3.cells[i].innerHTML='.';
-					hd1.cells[i].innerHTML='-';
-					hd2.cells[i].innerHTML='-';
-					hd3.cells[i].innerHTML='-';
-				}	
-
-				stringArray = document.getElementById('inptext').value.split('\n');
-
-				if (!stringArray[0]) stringArray[0]='';
-				if (!stringArray[1]) stringArray[1]='';
-				if (!stringArray[2]) stringArray[2]='';
-
-				let line1 = stringArray[0].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
-				let line2 = stringArray[1].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
-				let line3 = stringArray[2].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
-
-
-
-				if (line1.length==12 && line2.length==5 && line3.length==0) sch1 = true;
-				if (line1.length==5 && line2.length==12 && line3.length==0) sch2 = true;
-				if (line1.length==5 && line2.length==7 && line3.length==5) sch3 = true;
-
-
-				if (sch1 ^ sch2 ^ sch3){
-					str1.style="background-color: #d1f0a5";
-					str2.style="background-color: #d1f0a5";
-					str3.style="background-color: #d1f0a5";
-				}else{
-					str1.style="background-color: #f0e3a5";
-					str2.style="background-color: #f0e3a5";
-					str3.style="background-color: #f0e3a5";
-				}
-
-
-				for (var i = line1.length - 1; i >= 0; i--) {
-					str1.cells[i].innerHTML=line1[i];
-					hd1.cells[i].innerHTML=i+1;
-				}
-				for (var i = line2.length - 1; i >= 0; i--) {
-					str2.cells[i].innerHTML=line2[i];
-					hd2.cells[i].innerHTML=i+1;
-				}
-				for (var i = line3.length - 1; i >= 0; i--) {
-					str3.cells[i].innerHTML=line3[i];
-					hd3.cells[i].innerHTML=i+1;
-				}
-
-			});
-
-
-		});
-	</script>
+	
 </div>
 
 </body>

@@ -1,0 +1,47 @@
+		#parts td{
+			width: 5%;
+			height: 1em;
+			border: 1px solid black;
+			text-align: center;
+		}
+		#parts tr{
+			background-color: #f0e3a5;
+		}
+		table#parts{
+			margin: auto;
+			width: 100%;
+		}
+
+
+		body{
+			text-align: center;
+			padding: auto;
+			
+		}
+
+		.row-bg-pv{
+			margin: 1em;
+		}
+		.row-bg-pv div{
+			padding: 10px;
+			border: 1px solid grey;
+			border-radius: 3px;
+		}
+		.row-bg-pv img{
+			width: 100%;
+		}
+		@font-face {
+			font-family: "Han Zi"; 
+			src: url("hanzi.ttf") format('truetype'); 
+			font-weight: normal;
+			font-style: normal;
+		}
+
+		h1{
+			font-family: "Han Zi";
+		}
+		#canvas{
+			width: 500px;
+			height: 500px;
+			border: 1px solid black;
+		}
