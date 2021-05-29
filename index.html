@@ -12,33 +12,36 @@
 
 
 
-	<div class="container">
-		<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <div class="container">
-        <a class="navbar-brand" href="#">HaikuGen</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" 
-        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" 
-        aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-            
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home 
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#services">Русский</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#contact">Довідка</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
+	
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+		
+		<!-- Brand -->
+		<a class="navbar-brand" href="#">HaikuGen</a>
+
+		<!-- Toggler/collapsibe Button -->
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<!-- Navbar links -->
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Українська</a>
+				</li>
+				<li class="nav-item disabled">
+					<a class="nav-link" href="#">Русский</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="help.html">Довідка</a>
+				</li>
+			</ul>
+		</div>
+		
+	</nav> 
+
+	<main class="container" role="main">
+		
 		<h1>HaikuGen</h1>
 		<form>
 			<div class="row">
@@ -47,7 +50,7 @@
 						Регулярний вираз налаштовано під український алфавіт. Обробляються схеми 12 + 5, 5 + 12, 5 + 7 + 5.
 					</div>
 
-					
+
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4">
 					<div class="form-group">
@@ -65,91 +68,120 @@
 						<small id="emailHelp" class="form-text text-muted">Підпис буде доданий внизу</small>
 					</div>
 
-				<div class="btn-group" role="group" aria-label="Basic example">
-					<button type="button" id="render" class="btn btn-primary">Створити</button>
-					<button type="button" id="download" class="btn btn-info">Завантажити</button>
-					<button type="button" id="reset" class="btn btn-danger">Очистити</button>
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<!--<button type="button" id="render" class="btn btn-primary">Створити</button>-->
+						<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bgModal">Створити</button>
+						<button type="button" id="download" class="btn btn-info">Завантажити</button>
+						<button type="button" id="reset" class="btn btn-danger">Очистити</button>
+					</div>
+
+
+
+
 				</div>
 
+			</div>
+		</form>
 
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+				<table id="parts" class="table-striped" >
+					<tr id="hd1">
+						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+					</tr>
+					<tr id="str1">
+						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+					</tr>
+					<tr id="hd2">
+						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+					</tr>
+					<tr id="str2">
+						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+					</tr>
+					<tr id="hd3">
+						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+						<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
+					</tr>
+					<tr id="str3">
+						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+						<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
+					</tr>
 
+				</table>
 
 			</div>
-
-		</div>
-	</form>
-
-	<div class="row">
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-			<table id="parts" class="table-striped" >
-				<tr id="hd1">
-					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-				</tr>
-				<tr id="str1">
-					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-				</tr>
-				<tr id="hd2">
-					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-				</tr>
-				<tr id="str2">
-					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-				</tr>
-				<tr id="hd3">
-					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-					<td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>
-				</tr>
-				<tr id="str3">
-					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-					<td>.</td><td>.</td><td>.</td><td>.</td><td>.</td>
-				</tr>
-
-			</table>
-			<div class="container-fluid">
-				<div class="row row-bg-pv">
-					<div class="col-3">
-						<img id="im[0]" class="bg-preview" src="bg/1.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[1]" class="bg-preview" src="bg/2.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[2]" class="bg-preview" src="bg/3.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[3]" class="bg-preview" src="bg/4.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[4]" class="bg-preview" src="bg/5.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[5]" class="bg-preview" src="bg/6.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[6]" class="bg-preview" src="bg/7.jpg">
-					</div>
-					<div class="col-3">
-						<img id="im[7]" class="bg-preview" src="bg/8.jpg">
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
-			<canvas id="canvas"></canvas>
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
+				<canvas id="canvas"></canvas>
 			</button>
 		</div>
 	</div>
 
 	<div class="row">
-		V 0.5.3 Levytskyi Viktor (c)
-	</div>
+		V 0.6.2 Levytskyi Viktor (c)
+	</div>	
+</main>
 
-	
+
+
+<!-- The Modal -->
+<div class="modal" id="bgModal">
+	<div class="modal-dialog">
+		<div class="modal-content">
+
+			<!-- Modal Header -->
+			<div class="modal-header">
+				<h4 class="modal-title">Оберіть фон</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			</div>
+
+			<!-- Modal body -->
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="row row-bg-pv">
+						<div class="col-3">
+							<img id="im[0]" class="bg-preview" src="bg/1.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[1]" class="bg-preview" src="bg/2.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[2]" class="bg-preview" src="bg/3.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[3]" class="bg-preview" src="bg/4.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[4]" class="bg-preview" src="bg/5.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[5]" class="bg-preview" src="bg/6.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[6]" class="bg-preview" src="bg/7.jpg">
+						</div>
+						<div class="col-3">
+							<img id="im[7]" class="bg-preview" src="bg/8.jpg">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Modal footer -->
+			<div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			</div>
+
+		</div>
+	</div>
 </div>
-	<script src="js/jquery-3.6.0.min.js"></script>
-	<script type="text/javascript" src="js/script.js"></script>
+
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

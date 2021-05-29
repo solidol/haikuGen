@@ -190,7 +190,10 @@ $("#download").click(function(){
 
 $(".bg-preview").on("click", function(){
 	imgFilePath = $(this).attr("src");
-	$("#render").click();
+	$("#inptext").keyup();
+
+	prepareText();
+	drawWithImage();
 });
 
 $("#render").on("click", function(){
