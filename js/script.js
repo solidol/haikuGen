@@ -210,9 +210,10 @@ $("#download").click(function(){
 $(".bg-preview").on("click", function(){
 	imgFilePath = $(this).attr("src");
 	$("#inptext").keyup();
-
 	prepareText();
 	drawWithImage();
+	$(".row-bg-pv div").removeClass("active");
+	$(this).parent().addClass("active");
 });
 
 $("#render").on("click", function(){
