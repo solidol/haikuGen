@@ -12,14 +12,16 @@ let offsetX ;
 let offsetY ;
 let scrollX;
 let scrollY;
+let $canvas;
+let canvasOffset;
 
 $(document).ready(function(){
 	canvas = document.getElementById("canvas");
 	ctx = canvas.getContext("2d");
 
 // letiables used to get mouse position on the canvas
-let $canvas = $("#canvas");
-let canvasOffset = $canvas.offset();
+$canvas = $("#canvas");
+canvasOffset = $canvas.offset();
 offsetX = canvasOffset.left;
 offsetY = canvasOffset.top;
 scrollX = $canvas.scrollLeft();
@@ -113,8 +115,24 @@ function prepareText(){
 		text.height = 24;
 		texts.push(text);
 	}
+
+	text={};
+	text.text=$('#cr').val();
+	text.x=300;
+	text.y=450;
+	text.width = ctx.measureText(text.text).width;
+	text.height = 24;
+	texts.push(text);
 }
 
+
+$( "#editRes" ).on('shown.bs.modal', function(){
+$canvas = $("#canvas");
+canvasOffset = $canvas.offset();
+offsetX = canvasOffset.left;
+offsetY = canvasOffset.top;
+console.log(offsetX + ' ' + offsetX);
+});
 
 // listen for mouse events
 $("#canvas").on ("mousedown touchstart",function (e) {
@@ -143,6 +161,7 @@ $("#canvas").on("mousemove touchmove", function (e) {
 		return;
 	}
 	e.preventDefault();
+
 
 	if (e.type=='touchmove'){
 		mouseX = parseInt(e.touches[0].pageX - offsetX);
