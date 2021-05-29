@@ -14,8 +14,8 @@ let scrollX;
 let scrollY;
 
 $(document).ready(function(){
-canvas = document.getElementById("canvas");
-ctx = canvas.getContext("2d");
+	canvas = document.getElementById("canvas");
+	ctx = canvas.getContext("2d");
 
 // letiables used to get mouse position on the canvas
 let $canvas = $("#canvas");
@@ -62,14 +62,14 @@ function drawWithImage(){
 		ctx.drawImage(this, 0, 0, this.width, this.height);
 
 
-	for (let i = 0; i < texts.length; i++) {
-		let text = texts[i];
-		ctx.font = '24px "Han Zi"';
-		ctx.fillStyle = 'black';
-		ctx.fillText(text.text, text.x, text.y);
-		ctx.fillStyle = 'red';
-		ctx.fillText(text.text[0], text.x, text.y);
-	}
+		for (let i = 0; i < texts.length; i++) {
+			let text = texts[i];
+			ctx.font = '24px "Han Zi"';
+			ctx.fillStyle = 'black';
+			ctx.fillText(text.text, text.x, text.y);
+			ctx.fillStyle = 'red';
+			ctx.fillText(text.text[0], text.x, text.y);
+		}
 
 
 	};	
@@ -86,61 +86,72 @@ function textHittest(x, y, textIndex) {
 
 
 function prepareText(){
-		ctx.textBaseline = "bottom";
-		ctx.font = '24px "Han Zi"';
-		texts = [];
-		text={};
-		text.text=stringArray[0];
-		text.x=50;
-		text.y=80;
-		text.width = ctx.measureText(text.text).width;
-		text.height = 24;
-		texts.push(text);
-		text={};
-		text.text=stringArray[1];
-		text.x=90;
-		text.y=130;
-		text.width = ctx.measureText(text.text).width;
-		text.height = 24;
-		texts.push(text);
+	ctx.textBaseline = "bottom";
+	ctx.font = '24px "Han Zi"';
+	texts = [];
+	text={};
+	text.text=stringArray[0];
+	text.x=50;
+	text.y=80;
+	text.width = ctx.measureText(text.text).width;
+	text.height = 24;
+	texts.push(text);
+	text={};
+	text.text=stringArray[1];
+	text.x=90;
+	text.y=130;
+	text.width = ctx.measureText(text.text).width;
+	text.height = 24;
+	texts.push(text);
 
-		if (sch3){
-			text={};
-			text.text=stringArray[2];
-			text.x=150;
-			text.y=180;
-			text.width = ctx.measureText(text.text).width;
-			text.height = 24;
-			texts.push(text);
-		}
+	if (sch3){
+		text={};
+		text.text=stringArray[2];
+		text.x=150;
+		text.y=180;
+		text.width = ctx.measureText(text.text).width;
+		text.height = 24;
+		texts.push(text);
+	}
 }
 
 
 // listen for mouse events
-$("#canvas").mousedown(function (e) {
+$("#canvas").on ("mousedown touchstart",function (e) {
 	e.preventDefault();
 	//console.dir(e);
-	startX = parseInt(e.pageX - offsetX);
-	startY = parseInt(e.pageY - offsetY);
+	if (e.type=='touchstart'){
+		startX = parseInt(e.touches[0].pageX - offsetX);
+		startY = parseInt(e.touches[0].pageY - offsetY);
+	}else{
+		startX = parseInt(e.pageX - offsetX);
+		startY = parseInt(e.pageY - offsetY);
+	}
+
+	console.log(startX + ' ' + startY);
 
 
-//console.log(startX + ' ' + startY);
+	for (let i = 0; i < texts.length; i++) {
+		if (textHittest(startX, startY, i)) {
+			selectedText = i;
 
-
-    for (let i = 0; i < texts.length; i++) {
-    	if (textHittest(startX, startY, i)) {
-    		selectedText = i;
-    		
-    	}
-    }
+		}
+	}
 });
-$("#canvas").mousemove(function (e) {
+$("#canvas").on("mousemove touchmove", function (e) {
 	if (selectedText < 0) {
 		return;
 	}
 	e.preventDefault();
-	mouseX = parseInt(e.pageX - offsetX);
-	mouseY = parseInt(e.pageY - offsetY);
+
+	if (e.type=='touchmove'){
+		mouseX = parseInt(e.touches[0].pageX - offsetX);
+		mouseY = parseInt(e.touches[0].pageY - offsetY);
+	}else{
+		mouseX = parseInt(e.pageX - offsetX);
+		mouseY = parseInt(e.pageY - offsetY);
+	}
+
 
     // Put your mousemove stuff here
     let dx = mouseX - startX;
@@ -153,7 +164,7 @@ $("#canvas").mousemove(function (e) {
     text.y += dy;
     draw();
 });
-$("#canvas").mouseup(function (e) {
+$("#canvas").on("mouseup touchend",function (e) {
 	e.preventDefault();
 	selectedText = -1;
 	drawWithImage();
@@ -185,8 +196,8 @@ $(".bg-preview").on("click", function(){
 $("#render").on("click", function(){
 	$("#inptext").keyup();
 
-prepareText();
-drawWithImage();
+	prepareText();
+	drawWithImage();
 
 });
 $("#inptext").on("keyup", function(){
