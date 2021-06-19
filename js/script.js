@@ -42,10 +42,10 @@ let startY;
 function draw() {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 	
-	
+	ctx.textBaseline = "bottom";
 	for (let i = 0; i < texts.length; i++) {
 		let text = texts[i];
-		ctx.font = '24px "Han Zi"';
+		ctx.font = text.font;
 		ctx.fillStyle = 'black';
 		ctx.fillText(text.text, text.x, text.y);
 		ctx.fillStyle = 'red';
@@ -63,10 +63,11 @@ function drawWithImage(){
 		ctx.drawImage(this, 0, 0);
 		ctx.drawImage(this, 0, 0, this.width, this.height);
 
+		ctx.textBaseline = "bottom";
 
 		for (let i = 0; i < texts.length; i++) {
 			let text = texts[i];
-			ctx.font = '24px "Han Zi"';
+			ctx.font = text.font;
 			ctx.fillStyle = 'black';
 			ctx.fillText(text.text, text.x, text.y);
 			ctx.fillStyle = 'red';
@@ -88,50 +89,54 @@ function textHittest(x, y, textIndex) {
 
 
 function prepareText(){
-	ctx.textBaseline = "bottom";
-	ctx.font = '24px "Han Zi"';
+
+	//TODO
+	// решить костыль //ctx.measureText(text.text).width;
 	texts = [];
 	text={};
 	text.text=stringArray[0];
+	text.font  = '24px "Han Zi"';
 	text.x=50;
 	text.y=80;
-	text.width = ctx.measureText(text.text).width;
+	text.width = 500; //ctx.measureText(text.text).width;
 	text.height = 24;
 	texts.push(text);
 	text={};
 	text.text=stringArray[1];
 	text.x=90;
 	text.y=130;
-	text.width = ctx.measureText(text.text).width;
+	text.width = 500; //ctx.measureText(text.text).width;
 	text.height = 24;
 	texts.push(text);
 
 	if (sch3){
 		text={};
 		text.text=stringArray[2];
+		text.font  = '24px "Han Zi"';
 		text.x=150;
 		text.y=180;
-		text.width = ctx.measureText(text.text).width;
+		text.width = 500; //ctx.measureText(text.text).width;
 		text.height = 24;
 		texts.push(text);
 	}
 
 	text={};
 	text.text=$('#cr').val();
+	text.font  = '18px "Han Zi"';
 	text.x=300;
 	text.y=450;
-	text.width = ctx.measureText(text.text).width;
+	text.width = 500; //ctx.measureText(text.text).width;
 	text.height = 24;
 	texts.push(text);
 }
 
 
 $( "#editRes" ).on('shown.bs.modal', function(){
-$canvas = $("#canvas");
-canvasOffset = $canvas.offset();
-offsetX = canvasOffset.left;
-offsetY = canvasOffset.top;
-console.log(offsetX + ' ' + offsetX);
+	$canvas = $("#canvas");
+	canvasOffset = $canvas.offset();
+	offsetX = canvasOffset.left;
+	offsetY = canvasOffset.top;
+	console.log(offsetX + ' ' + offsetX);
 });
 
 // listen for mouse events
@@ -225,16 +230,10 @@ $("#render").on("click", function(){
 });
 $("#inptext").on("keyup", function(){
 
-	for (let i = 15 - 1; i >= 0; i--) {
-		str1.cells[i].innerHTML='.';
-		str2.cells[i].innerHTML='.';
-		str3.cells[i].innerHTML='.';
-		hd1.cells[i].innerHTML='-';
-		hd2.cells[i].innerHTML='-';
-		hd3.cells[i].innerHTML='-';
-	}	
+	$(".table-header-line td").text("-");
+	$(".table-string-line td").text(".");
 
-	stringArray = document.getElementById('inptext').value.split('\n');
+	stringArray = $('#inptext').val().split('\n');
 
 	if (!stringArray[0]) stringArray[0]='';
 	if (!stringArray[1]) stringArray[1]='';
@@ -245,32 +244,24 @@ $("#inptext").on("keyup", function(){
 	let line3 = stringArray[2].match(/[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig) || [];
 
 
-
+	sch1 = sch2 = sch3 = false;
 	if (line1.length==12 && line2.length==5 && line3.length==0) {
 		sch1 = true;
-		sch2 = false;
-		sch3 = false;
-	}
+	} else
 	if (line1.length==5 && line2.length==12 && line3.length==0)  {
-		sch1 = false;
 		sch2 = true;
-		sch3 = false;
-	}
+	} else
 	if (line1.length==5 && line2.length==7 && line3.length==5)  {
-		sch1 = false;
-		sch2 = false;
 		sch3 = true;
+	} else{
+		sch1 = sch2 = sch3 = false;
 	}
 
 
 	if (sch1 ^ sch2 ^ sch3){
-		str1.style="background-color: #d1f0a5";
-		str2.style="background-color: #d1f0a5";
-		str3.style="background-color: #d1f0a5";
+		$(".table-string-line").addClass("table-string-line-active");
 	}else{
-		str1.style="background-color: #f0e3a5";
-		str2.style="background-color: #f0e3a5";
-		str3.style="background-color: #f0e3a5";
+		$(".table-string-line").removeClass("table-string-line-active");
 	}
 
 

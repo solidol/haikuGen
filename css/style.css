@@ -5,9 +5,7 @@
 			text-align: center;
 			font-family: "Arial Narrow";
 		}
-		#parts tr{
-			background-color: #f0e3a5;
-		}
+
 		table#parts{
 			margin: auto;
 			width: 100%;
@@ -56,4 +54,12 @@
 
 		.modal-dialog{
 			max-width: 600px;
+		}
+
+
+		.table-string-line{
+			background-color: #f0e3a5;
+		}
+		.table-string-line-active{
+			background-color: #d1f0a5;
 		}
