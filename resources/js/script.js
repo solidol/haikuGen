@@ -131,7 +131,7 @@ $(document).ready(function () {
     }
 
 
-    $("#editRes").on('scroll shown.bs.modal', function () {
+    $("#mdEditRes").on('scroll shown.bs.modal', function () {
         $canvas = $("#canvas");
         canvasOffset = $canvas.offset();
         offsetX = canvasOffset.left;

@@ -14,11 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('index_ua');
+    return view('index');
 });
-Route::get('/ru', function () {
-    return view('index_ru');
+Route::get('/{locale}', function ($locale) {
+    App::setLocale($locale);
+    return view('index');
 });
 Route::get('/help', function () {
+    return view('help');
+});
+
+Route::get('/{locale}/help', function ($locale) {
+    App::setLocale($locale);
     return view('help');
 });

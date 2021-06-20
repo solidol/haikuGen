@@ -10900,3 +10900,7 @@ h1, .h1 {
   margin: auto;
   background-color: #f0efe6;
 }
+
+header {
+  padding: 1em;
+}
