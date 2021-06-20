@@ -6,7 +6,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Оберіть фон</h4>
+                <h4 class="modal-title">{{ trans('front_mainpage.selectimage') }}</h4>
                 <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
             </div>
 
@@ -44,9 +44,9 @@
 
             <!-- Modal footer -->
             <div class="modal-footer btn-group">
-                <button type="button" class="btn btn-info btn-lg" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#mdEditRes">Далі</button>
+                <button type="button" class="btn btn-info btn-lg" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#mdEditRes">{{ trans('front_modal.next') }}</button>
 
-                <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">{{ trans('front_modal.close') }}</button>
             </div>
 
         </div>

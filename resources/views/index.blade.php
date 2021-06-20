@@ -16,17 +16,16 @@
         <div class="col-12">
 
             <div class="form-group">
-                <label for="cr">Автор хайку</label>
+                <label for="cr">{{ trans('front_mainpage.authorhaiku') }}</label>
                 <input type="text" name="cr" id="cr" value="Viktor Levytskyi" class="form form-control form-control-lg">
-                <small id="emailHelp" class="form-text text-muted">Підпис буде доданий внизу</small>
             </div>
         </div>
         <div class="col-12">
             <div class="btn-group" role="group" aria-label="Basic example">
                 <!--<button type="button" id="render" class="btn btn-primary">Створити</button>-->
-                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#mdSelectImage">Обрати фон</button>
-                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#mdEditRes">Редагувати</button>
-                <button type="button" id="reset" class="btn btn-danger btn-lg">Очистити</button>
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#mdSelectImage">{{ trans('front_mainpage.selectimage') }}</button>
+                <button type="button" class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#mdEditRes">{{ trans('front_mainpage.finish') }}</button>
+                <button type="button" id="reset" class="btn btn-danger btn-lg">{{ trans('front_mainpage.clear') }}</button>
             </div>
 
 
