@@ -139,8 +139,6 @@ $(document).ready(function () {
         //console.log(offsetX + ' ' + offsetX);
     });
     
-
-
 // listen for mouse events
     $("#canvas").on("mousedown touchstart", function (e) {
         e.preventDefault();

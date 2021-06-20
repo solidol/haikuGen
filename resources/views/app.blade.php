@@ -20,39 +20,14 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
-        <nav class="container navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+        <div class="mainpaper container">
 
-            <!-- Brand -->
-            <a class="navbar-brand" href="#">HaikuGen</a>
+            <main role="main">
+                @yield('content')
+            </main>
 
-            <!-- Toggler/collapsibe Button -->
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            <footer>
 
-            <!-- Navbar links -->
-            <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Українська</a>
-                    </li>
-                    <li class="nav-item disabled">
-                        <a class="nav-link" href="#">Русский</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="help.html">Довідка</a>
-                    </li>
-                </ul>
-            </div>
-
-        </nav> 
-
-        <main class="container" role="main">
-            @yield('content')
-        </main>
-
-        <footer>
-            <div class="container">
                 <div class="footer-col"><span>HaikuGen 0.7.0 © Levytskyi Viktor</span></div>
                 <div class="footer-col">
                     <div class="social-bar-wrap">
@@ -65,11 +40,11 @@
                 <div class="footer-col">
                     <a href="mailto:admin@yoursite.ru">Написать письмо</a>
                 </div>
-            </div>
-        </footer>
+
+            </footer>
+        </div>
 
 
 
-   
-</body>
+    </body>
 </html>
