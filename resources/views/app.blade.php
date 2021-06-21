@@ -25,7 +25,6 @@
                 <h1>HaikuGen</h1>
                 <nav>
                     <a href="/">UA</a>
-                    <a href="/en">EN</a>
                     <a href="/ru">RU</a>
                 </nav>
             </header>
@@ -35,7 +34,7 @@
 
             <footer>
 
-                <div class="footer-col"><span>HaikuGen 0.7.2 © Levytskyi Viktor</span></div>
+                <div class="footer-col"><span>HaikuGen 0.7.1 © Levytskyi Viktor</span></div>
                 <div class="footer-col">
                     <div class="social-bar-wrap">
                         <a title="Facebook" href="" target="_blank"><i class="fa fa-facebook"></i></a>
