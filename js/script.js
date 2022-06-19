@@ -29,7 +29,7 @@ function preload() {
 
 function setup() {
 
-    canvas = createCanvas(500, 500);
+    canvas = createCanvas(width, width);
     background(0);
     canvas.parent('canvasdiv');
     inptext.onkeypress = function () {
@@ -206,8 +206,28 @@ function setEvents() {
             imgSelectedIndex = this.dataset.ind - 1;
         };
     }
-    btnprepare.onclick = function () {
+
+
+    btnchosebg.onclick = function(){
+        page1.classList.add("hidden");
+        page2.classList.remove("hidden");
+    }
+    btnprepare.onclick = function(){
         prepareText();
+        page2.classList.add("hidden");
+        page3.classList.remove("hidden");
+    }
+    btnbacktoform1.onclick = function(){
+        page2.classList.add("hidden");
+        page1.classList.remove("hidden");
+    }
+    btnbacktoimages.onclick = function(){
+        page3.classList.add("hidden");
+        page2.classList.remove("hidden");
+    }
+    btnbacktoform2.onclick = function(){
+        page3.classList.add("hidden");
+        page1.classList.remove("hidden");
     }
     btndownload.onclick = function(){
         saveCanvas(canvas, 'myCanvas', 'jpg');
