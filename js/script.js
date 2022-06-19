@@ -12,14 +12,10 @@ let sch2 = false; /* 5 + 12*/
 let sch3 = false; /* 5 + 7 + 5*/
 let imgFilePath = "./assets/bg/1.jpg";
 
-let offsetX;
-let offsetY;
-let scrollX;
-let scrollY;
+
 let canvas;
-let canvasOffset;
-let startX;
-let startY;
+let touchDistX;
+let touchDistY;
 
 
 
@@ -28,12 +24,12 @@ function preload() {
         let fileName = './assets/bg/' + i + '.jpg';
         images.push(loadImage(fileName));
     }
-
+    loadFont('/fonts/hanzi.ttf');
 }
 
 function setup() {
 
-    const canvas = createCanvas(500, 500);
+    canvas = createCanvas(500, 500);
     background(0);
     canvas.parent('canvasdiv');
     inptext.onkeypress = function () {
@@ -43,28 +39,62 @@ function setup() {
     setEvents()
 
 }
-
+/*
+ава вава вав
+вава авава ыввава
+выа ва а вавав  
+*/
 function draw() {
-    image(images[imgSelectedIndex], 0, 0);
+    if (texts.length > 0 && texts[0].text != undefined) {
+        image(images[imgSelectedIndex], 0, 0);
+        textFont('Han Zi');
+        textAlign(LEFT, BOTTOM);
 
+        for (let tItem of texts) {
+            textSize(tItem.font);
+            fill(0);
+            text(tItem.text, tItem.x, tItem.y);
+            fill(255, 0, 0);
+            text(tItem.text[0], tItem.x, tItem.y);
+
+        }
+    }
 }
 
 function keyPressed() {
 
 }
 
-function mouseMoved() {
+function touchMoved() {
+    // Put your mousemove stuff here
+    if (selectedText >= 0) {
+        texts[selectedText].x = mouseX - touchDistX;
+        texts[selectedText].y = mouseY - touchDistY;
+    }
+}
 
+function touchStarted() {
+    for (let i = 0; i < texts.length; i++) {
+        if (textHittest(mouseX, mouseY, i)) {
+            selectedText = i;
+            touchDistX = mouseX - texts[selectedText].x;
+            touchDistY = mouseY - texts[selectedText].y;
+        }
+    }
+}
+
+function touchEnded() {
+    selectedText = -1;
 }
 
 
 function textCheck() {
     let wpHeaders = document.querySelectorAll(".table-header-line td");
     let wpStrings = document.querySelectorAll(".table-string-line td");
-    for(item of wpHeaders){
+    for (item of wpHeaders) {
         item.texts = '-';
     }
-    for(item of wpStrings){
+    for (item of wpStrings) {
         item.texts = '.';
     }
 
@@ -132,6 +162,37 @@ function textCheck() {
     }
 }
 
+function prepareText() {
+
+    //TODO
+
+    texts = [];
+
+    for (let i = 0; i < 3; i++) {
+        if (i < 2 || sch3)
+            texts.push(
+                {
+                    'text': stringArray[i],
+                    'font': 24,
+                    'x': 50 + i * 30,
+                    'y': 80 + i * 40,
+                    'width': 500,
+                    'height': 24
+                }
+            );
+    }
+    texts.push(
+        {
+            'text': $('#cr').val(),
+            'font': 18,
+            'x': 300,
+            'y': 450,
+            'width': 500,
+            'height': 24
+        }
+    );
+}
+
 
 
 function setEvents() {
@@ -145,4 +206,16 @@ function setEvents() {
             imgSelectedIndex = this.dataset.ind - 1;
         };
     }
+    btnprepare.onclick = function () {
+        prepareText();
+    }
+    btndownload.onclick = function(){
+        saveCanvas(canvas, 'myCanvas', 'jpg');
+    }
+}
+
+// test if x,y is inside the bounding box of texts[textIndex]
+function textHittest(x, y, textIndex) {
+    let text = texts[textIndex];
+    return (x >= text.x && x <= text.x + text.width && y >= text.y - text.height && y <= text.y);
 }

@@ -220,7 +220,7 @@
 
                         <!-- Modal footer -->
                         <div class="modal-footer btn-group">
-                            <button type="button" class="btn btn-info btn-lg" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#mdEditRes">Далі</button>
+                            <button id="btnprepare" type="button" class="btn btn-info btn-lg" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#mdEditRes">Далі</button>
 
                             <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Закрити</button>
                         </div>
@@ -236,7 +236,7 @@
                         <!-- Modal Header -->
                         <div class="modal-header">
                             <h4 class="modal-title">Завершити</h4>
-                            <button type="button" class="close" data-bs-dismiss="modal">×</button>
+                            <button id="btnfinish" type="button" class="close" data-bs-dismiss="modal">×</button>
                         </div>
 
                         <!-- Modal body -->
@@ -247,7 +247,7 @@
                         <!-- Modal footer -->
                         <div class="modal-footer btn-group">
                             <button type="button" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#mdSelectImage" class="btn btn-info btn-lg">Назад</button>
-                            <button type="button" id="download" data-dismiss="modal" class="btn btn-info btn-lg">Завантажити</button>
+                            <button type="button" id="btndownload" data-dismiss="modal" class="btn btn-info btn-lg">Завантажити</button>
 
                             <button type="button" class="btn btn-danger btn-lg" data-bs-dismiss="modal">Закрити</button>
                         </div>
@@ -294,7 +294,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.7.3 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.5 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa fa-facebook"></i></a>
