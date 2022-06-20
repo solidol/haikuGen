@@ -66,16 +66,12 @@
                     <form>
                         <div class="form-group">
                             <label for="inptext">Текст</label>
-                            <textarea class="form form-control  form-control-lg" id="inptext" rows="3">
-ава вава вав
-вава авава ыввава
-выа ва а вавав
-                                </textarea>
+                            <textarea class="form form-control  form-control-lg" id="inptext" rows="3"></textarea>
                         </div>
 
                         <div class="form-group">
                             <label for="cr">Автор</label>
-                            <input type="text" name="cr" id="cr" value="Viktor Levytskyi" class="form form-control form-control-lg">
+                            <input type="text" name="cr" id="cr" placeholder="Your Name" class="form form-control form-control-lg">
                         </div>
 
 
@@ -239,7 +235,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.7 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.8 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>

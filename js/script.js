@@ -94,13 +94,13 @@ function textCheck() {
     let wpHeaders = document.querySelectorAll(".table-header-line td");
     let wpStrings = document.querySelectorAll(".table-string-line td");
     for (item of wpHeaders) {
-        item.texts = '-';
+        item.innerText = '-';
     }
     for (item of wpStrings) {
-        item.texts = '.';
+        item.innerText = '.';
     }
-
-    stringArray = $('#inptext').val().split('\n');
+    stringArray = [];
+    stringArray = inptext.value.split('\n');
 
     if (!stringArray[0])
         stringArray[0] = '';
@@ -113,7 +113,7 @@ function textCheck() {
     let regexpRu = /[ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*[ЁУЕЫАОЭЯИЮ][ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЁ]|[ЦКНГШЩЗХФВПРЛДЖЧСМТБ]?[ЁУЕЫАОЭЯИЮ]|Й[АИУЕО])/ig;
     let regexpRes;
     switch ($('html').first().attr('lang')) {
-        case 'ua':
+        case 'uk':
             regexpRes = regexpUa;
             break;
         case 'ru':
@@ -170,18 +170,17 @@ function prepareText() {
 
     texts = [];
 
-    for (let i = 0; i < 3; i++) {
-        if (i < 2 || sch3)
-            texts.push(
-                {
-                    'text': stringArray[i],
-                    'font': map(cnWidth, 300, 500, 16, 24),
-                    'x': map(cnWidth, 300, 500, 50 + i * 30, 80 + i * 40),
-                    'y': map(cnWidth, 300, 500, 50 + i * 30, 80 + i * 40),
-                    'width': 500,
-                    'height': 24
-                }
-            );
+    for (let i = 0; i < stringArray.length; i++) {
+        texts.push(
+            {
+                'text': stringArray[i],
+                'font': map(cnWidth, 300, 500, 16, 24),
+                'x': map(cnWidth, 300, 500, 50 + i * 30, 80 + i * 40),
+                'y': map(cnWidth, 300, 500, 50 + i * 30, 80 + i * 40),
+                'width': 500,
+                'height': 24
+            }
+        );
     }
     texts.push(
         {
@@ -207,15 +206,18 @@ function setEvents() {
             this.classList.add("active");
             imgSelectedIndex = this.dataset.ind - 1;
         };
-        element.ondblclick = function (){
+        element.ondblclick = function () {
             this.onclick();
             btntoform.onclick();
         }
     }
-
+    inptext.onkeypress = function () {
+        textCheck();
+        prepareText();
+    }
 
     btntoform.onclick = function () {
-        
+
         page1.classList.add("hidden");
         page2.classList.remove("hidden");
     }
