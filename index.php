@@ -28,162 +28,17 @@
     <div class="mainpaper">
         <header>
             <h1><span class="cl-red">H</span>aikuGen</h1>
+            <!--
             <nav>
                 <a href="http://levitsky.pp.ua/">UA</a>
                 <a href="http://levitsky.pp.ua/ru">RU</a>
             </nav>
+            -->
         </header>
         <main role="main">
+
+
             <div id="page1" class="page">
-                <form>
-                    <div class="row">
-
-                        <div class="col-12">
-                            <div class="form-group">
-                                <label for="inptext">Введіть текст</label>
-                                <textarea class="form form-control  form-control-lg" id="inptext" rows="3"></textarea>
-                            </div>
-
-
-                        </div>
-                        <div class="col-12">
-
-                            <div class="form-group">
-                                <label for="cr">Автор хайку</label>
-                                <input type="text" name="cr" id="cr" value="Viktor Levytskyi" class="form form-control form-control-lg">
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="btn-group" role="group" aria-label="Basic example">
-                                <button type="button" id="btnchosebg" class="btn btn-primary btn-lg">Обрати фон</button>
-                                <button type="button" id="btnresetform" class="btn btn-danger btn-lg">Очистити</button>
-                            </div>
-
-
-
-
-                        </div>
-
-                    </div>
-                </form>
-
-                <div class=" row">
-                    <div class="col-12">
-                        <table id="parts" class="table-striped">
-                            <tbody>
-                                <tr id="hd1" class="table-header-line">
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                                <tr id="str1" class="table-string-line">
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr id="hd2" class="table-header-line">
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                                <tr id="str2" class="table-string-line">
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-                                <tr id="hd3" class="table-header-line">
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                </tr>
-                                <tr id="str3" class="table-string-line">
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                    <td>.</td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div id="page2" class="page hidden">
                 <h4 class="modal-title">Обрати фон</h4>
                 <div class="modal-body">
                     <div class="container-fluid">
@@ -191,9 +46,7 @@
                             <?php
                             for ($i = 1; $i <= 24; $i++) :
                             ?>
-                                
-                                    <img class="bg-preview" data-ind="<?= $i ?>" src="./assets/bg/<?= $i ?>.jpg">
-                                
+                                <img class="bg-preview" data-ind="<?= $i ?>" src="./assets/bg/<?= $i ?>.jpg">
                             <?php
                             endfor;
                             ?>
@@ -201,8 +54,143 @@
                     </div>
                 </div>
                 <div class="modal-footer btn-group">
-                    <button id="btnbacktoform1" type="button" class="btn btn-danger btn-lg">Назад</button>
-                    <button id="btnprepare" type="button" class="btn btn-info btn-lg">Далі</button>
+                    <button id="btnupload" type="button" class="btn btn-danger btn-lg">Додати</button>
+                    <button id="btntoform" type="button" class="btn btn-info btn-lg">Далі</button>
+                </div>
+            </div>
+
+            <div id="page2" class="page hidden">
+                <div class="row">
+                    <form>
+                        <div class="form-group">
+                            <label for="inptext">Введіть текст</label>
+                            <textarea class="form form-control  form-control-lg" id="inptext" rows="3">
+ава вава вав
+вава авава ыввава
+выа ва а вавав
+                                </textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cr">Автор хайку</label>
+                            <input type="text" name="cr" id="cr" value="Viktor Levytskyi" class="form form-control form-control-lg">
+                        </div>
+
+                        <div class="btn-group" role="group" aria-label="Basic example">
+                            <button type="button" id="btnchosebg1" class="btn btn-primary btn-lg">Назад</button>
+                            <button type="button" id="btnresetform" class="btn btn-danger btn-lg">Очистити</button>
+                            <button type="button" id="btnedit" class="btn btn-danger btn-lg">Далі</button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="row">
+                    <table id="parts" class="table-striped">
+                        <tbody>
+                            <tr id="hd1" class="table-header-line">
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr id="str1" class="table-string-line">
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr id="hd2" class="table-header-line">
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr id="str2" class="table-string-line">
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                            </tr>
+                            <tr id="hd3" class="table-header-line">
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr id="str3" class="table-string-line">
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                                <td>.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
@@ -212,10 +200,10 @@
 
                 </div>
                 <div class="modal-footer btn-group">
-                    <button id="btnbacktoimages" type="button" class="btn btn-info btn-lg">Назад</button>
+                    <button id="btnbacktoform" type="button" class="btn btn-info btn-lg">Назад</button>
                     <button id="btndownload" type="button" class="btn btn-info btn-lg">Завантажити</button>
 
-                    <button id="btnbacktoform2" type="button" class="btn btn-danger btn-lg">Закрити</button>
+                    <button id="btnchosebg2" type="button" class="btn btn-danger btn-lg">На початок</button>
                 </div>
             </div>
 
@@ -247,7 +235,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.5 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.6 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa fa-facebook"></i></a>

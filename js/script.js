@@ -4,7 +4,7 @@ let imgSelectedIndex = 0;
 let imgControls = [];
 let imgCount = 24;
 let selectedText = -1;
-let ctx;
+let cnWidth, cnHeight;
 
 let stringArray = [];
 let sch1 = false; /* 12 + 5 */
@@ -28,8 +28,10 @@ function preload() {
 }
 
 function setup() {
+    cnWidth = constrain(page1.offsetWidth, 300, 500);
+    cnHeight = cnWidth;
 
-    canvas = createCanvas(width, width);
+    canvas = createCanvas(cnWidth, cnHeight);
     background(0);
     canvas.parent('canvasdiv');
     inptext.onkeypress = function () {
@@ -46,7 +48,7 @@ function setup() {
 */
 function draw() {
     if (texts.length > 0 && texts[0].text != undefined) {
-        image(images[imgSelectedIndex], 0, 0);
+        image(images[imgSelectedIndex], 0, 0, cnWidth, cnHeight);
         textFont('Han Zi');
         textAlign(LEFT, BOTTOM);
 
@@ -173,9 +175,9 @@ function prepareText() {
             texts.push(
                 {
                     'text': stringArray[i],
-                    'font': 24,
-                    'x': 50 + i * 30,
-                    'y': 80 + i * 40,
+                    'font': map(cnWidth, 300, 500, 16, 24),
+                    'x': map(cnWidth, 300, 500, 50 + i * 30, 80 + i * 40),
+                    'y': map(cnWidth, 300, 500, 50 + i * 30, 80 + i * 40),
                     'width': 500,
                     'height': 24
                 }
@@ -183,10 +185,10 @@ function prepareText() {
     }
     texts.push(
         {
-            'text': $('#cr').val(),
-            'font': 18,
-            'x': 300,
-            'y': 450,
+            'text': cr.value,
+            'font': map(cnWidth, 300, 500, 12, 18),
+            'x': map(cnWidth, 300, 500, 100, 250),
+            'y': map(cnWidth, 300, 500, 300, 450),
             'width': 500,
             'height': 24
         }
@@ -205,31 +207,37 @@ function setEvents() {
             this.classList.add("active");
             imgSelectedIndex = this.dataset.ind - 1;
         };
+        element.ondblclick = function (){
+            this.onclick();
+            btntoform.onclick();
+        }
     }
 
 
-    btnchosebg.onclick = function(){
+    btntoform.onclick = function () {
+        
         page1.classList.add("hidden");
         page2.classList.remove("hidden");
     }
-    btnprepare.onclick = function(){
+    btnedit.onclick = function () {
+        textCheck();
         prepareText();
         page2.classList.add("hidden");
         page3.classList.remove("hidden");
     }
-    btnbacktoform1.onclick = function(){
+    btnchosebg1.onclick = function () {
         page2.classList.add("hidden");
         page1.classList.remove("hidden");
     }
-    btnbacktoimages.onclick = function(){
+    btnbacktoform.onclick = function () {
         page3.classList.add("hidden");
         page2.classList.remove("hidden");
     }
-    btnbacktoform2.onclick = function(){
+    btnchosebg2.onclick = function () {
         page3.classList.add("hidden");
         page1.classList.remove("hidden");
     }
-    btndownload.onclick = function(){
+    btndownload.onclick = function () {
         saveCanvas(canvas, 'myCanvas', 'jpg');
     }
 }
