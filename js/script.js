@@ -17,6 +17,13 @@ let canvas;
 let touchDistX;
 let touchDistY;
 
+let filters = { 
+    'gray': false, 
+    'noise': false,
+    'blur': false,
+    'posterize': false 
+};
+
 
 
 function preload() {
@@ -46,7 +53,12 @@ function setup() {
 function draw() {
     if (texts.length > 0 && texts[0].text != undefined) {
         image(images[imgSelectedIndex], 0, 0, cnWidth, cnHeight);
-        textFont('Han Zi');
+
+        if (filters.gray) filter(GRAY);
+        if (filters.blur) filter(BLUR,2);
+        if (filters.posterize) filter(POSTERIZE ,10);
+        
+            textFont('Han Zi');
         textAlign(LEFT, BOTTOM);
 
         for (let tItem of texts) {
@@ -258,14 +270,23 @@ document.addEventListener('DOMContentLoaded', function () {
         page1.classList.remove("hidden");
     }
     btndownload.onclick = function () {
-        
-2
-3
-4
-var today = new Date();
-var date = today.getFullYear()+''+(today.getMonth()+1)+today.getDate();
-var time = today.getHours() +''+ today.getMinutes() + today.getSeconds();
-var dateTime = date+'_'+time;
+
+        2
+        3
+        4
+        var today = new Date();
+        var date = today.getFullYear() + '' + (today.getMonth() + 1) + today.getDate();
+        var time = today.getHours() + '' + today.getMinutes() + today.getSeconds();
+        var dateTime = date + '_' + time;
         saveCanvas(canvas, dateTime, 'jpg');
+    }
+    btngrayscale.onclick = function(){
+        filters.gray=!filters.gray;
+    }
+    btnblur.onclick = function(){
+        filters.blur=!filters.blur;
+    }
+    btnposterize.onclick = function(){
+        filters.posterize=!filters.posterize;
     }
 });

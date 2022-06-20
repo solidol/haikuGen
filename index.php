@@ -38,14 +38,9 @@
             -->
         </header>
         <main role="main">
-
-
             <div id="page1" class="page">
                 <h2>Обреріть фон</h2>
-
-
                 <div class="container">
-
                     <div class="slider">
                         <div class="slider__container">
                             <div class="slider__wrapper">
@@ -64,11 +59,10 @@
                         <a href="#" class="slider__control" data-slide="prev"></a>
                         <a href="#" class="slider__control" data-slide="next"></a>
                     </div>
-
-                    <div class="modal-footer btn-group">
-                        <button id="btnupload" type="button" class="btn col-6"><i class="fa-solid fa-plus"></i></button>
-                        <button id="btntoform" type="button" class="btn col-6"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
+                </div>
+                <div class="row">
+                    <button id="btnupload" type="button" class="btn col-6"><i class="fa-solid fa-plus"></i></button>
+                    <button id="btntoform" type="button" class="btn col-6"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
             <div id="page2" class="page hidden">
@@ -189,49 +183,55 @@
                     </table>
                 </div>
                 <div class="row">
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" id="btnchosebg1" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button type="button" id="btnresetform" class="btn col-4"><i class="fa-solid fa-recycle"></i></button>
-                        <button type="button" id="btnedit" class="btn col-4"><i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
+                    <button type="button" id="btnchosebg1" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button type="button" id="btnresetform" class="btn col-4"><i class="fa-solid fa-recycle"></i></button>
+                    <button type="button" id="btnedit" class="btn col-4"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
 
             <div id="page3" class="page hidden">
                 <h2>Збережіть</h2>
-                <div id="canvasdiv" class="modal-body">
+                <div id="canvasdiv" class="row">
 
                 </div>
-                <div class="modal-footer btn-group">
-                    <button id="btnbacktoform" type="button" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
-                    <button id="btnchosebg2" type="button" class="btn col-4"><i class="fa-solid fa-arrows-rotate"></i></button>
-                    <button id="btndownload" type="button" class="btn col-4"><i class="fa-solid fa-angles-down"></i></button>
-                </div>
-            </div>
-
-            <div class="page hidden" id="mdHelp">
-
-                <h4 class="modal-title">Довідка</h4>
-
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row row-bg-pv">
-                            <div class="col-12">
-                                <div>
-                                    Регулярний вираз налаштовано під український алфавіт. Обробляються схеми 12 + 5, 5 + 12, 5 + 7 + 5.
-                                </div>
-
-
-                            </div>
-                        </div>
+                <div class="row">
+                    <h3>Фільтри</h3>
+                    <div id="filters">
+                        <button id="btngrayscale" type="button" class="btn col-3">Ggray</button>
+                        <button id="btnblur" type="button" class="btn col-3">Blur</button>
+                        <button id="btnposterize" type="button" class="btn col-3">Poster</button>
+                        
+                    </div>
+                    <div class="row">
+                        <button id="btnbacktoform" type="button" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="btnchosebg2" type="button" class="btn col-4"><i class="fa-solid fa-arrows-rotate"></i></button>
+                        <button id="btndownload" type="button" class="btn col-4"><i class="fa-solid fa-angles-down"></i></button>
                     </div>
                 </div>
 
+                <div class="page hidden" id="mdHelp">
+
+                    <h4 class="modal-title">Довідка</h4>
 
 
-            </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="container-fluid">
+                            <div class="row row-bg-pv">
+                                <div class="col-12">
+                                    <div>
+                                        Регулярний вираз налаштовано під український алфавіт. Обробляються схеми 12 + 5, 5 + 12, 5 + 7 + 5.
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
 
         </main>
 
