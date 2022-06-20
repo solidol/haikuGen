@@ -21,6 +21,7 @@
 
 
     <!-- Styles -->
+    <link href="./css/all.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
@@ -39,7 +40,7 @@
 
 
             <div id="page1" class="page">
-                <h4 class="modal-title">Обрати фон</h4>
+                <h2>Обреріть фон</h4>
                 <div class="modal-body">
                     <div class="container-fluid">
                         <div class="row-bg-pv">
@@ -54,16 +55,17 @@
                     </div>
                 </div>
                 <div class="modal-footer btn-group">
-                    <button id="btnupload" type="button" class="btn btn-danger btn-lg">Додати</button>
-                    <button id="btntoform" type="button" class="btn btn-info btn-lg">Далі</button>
+                    <button id="btnupload" type="button" class="btn col-6"><i class="fa-solid fa-square-plus"></i></button>
+                    <button id="btntoform" type="button" class="btn col-6"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
 
             <div id="page2" class="page hidden">
+                <h2>Введіть текст</h2>
                 <div class="row">
                     <form>
                         <div class="form-group">
-                            <label for="inptext">Введіть текст</label>
+                            <label for="inptext">Текст</label>
                             <textarea class="form form-control  form-control-lg" id="inptext" rows="3">
 ава вава вав
 вава авава ыввава
@@ -72,15 +74,11 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="cr">Автор хайку</label>
+                            <label for="cr">Автор</label>
                             <input type="text" name="cr" id="cr" value="Viktor Levytskyi" class="form form-control form-control-lg">
                         </div>
 
-                        <div class="btn-group" role="group" aria-label="Basic example">
-                            <button type="button" id="btnchosebg1" class="btn btn-primary btn-lg">Назад</button>
-                            <button type="button" id="btnresetform" class="btn btn-danger btn-lg">Очистити</button>
-                            <button type="button" id="btnedit" class="btn btn-danger btn-lg">Далі</button>
-                        </div>
+
 
                     </form>
                 </div>
@@ -192,18 +190,24 @@
                         </tbody>
                     </table>
                 </div>
+                <div class="row">
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" id="btnchosebg1" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button type="button" id="btnresetform" class="btn col-4"><i class="fa-solid fa-recycle"></i></button>
+                        <button type="button" id="btnedit" class="btn col-4"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
             </div>
 
             <div id="page3" class="page hidden">
-                <h4 class="modal-title">Завершити</h4>
+                <h2>Збережіть</h2>
                 <div id="canvasdiv" class="modal-body">
 
                 </div>
                 <div class="modal-footer btn-group">
-                    <button id="btnbacktoform" type="button" class="btn btn-info btn-lg">Назад</button>
-                    <button id="btndownload" type="button" class="btn btn-info btn-lg">Завантажити</button>
-
-                    <button id="btnchosebg2" type="button" class="btn btn-danger btn-lg">На початок</button>
+                    <button id="btnbacktoform" type="button" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button id="btnchosebg2" type="button" class="btn col-4"><i class="fa-solid fa-arrows-rotate"></i></button>
+                    <button id="btndownload" type="button" class="btn col-4"><i class="fa-solid fa-angles-down"></i></button>
                 </div>
             </div>
 
@@ -235,13 +239,13 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.6 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.7 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
-                    <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa fa-facebook"></i></a>
-                    <a title="Twitter" href="http://levitsky.pp.ua/" target="_blank"><i class="fa fa-twitter"></i></a>
-                    <a title="Pinterest" href="http://levitsky.pp.ua/" target="_blank"><i class="fa fa-pinterest"></i></a>
-                    <a title="Instagram" href="http://levitsky.pp.ua/" target="_blank"><i class="fa fa-instagram"></i></a>
+                    <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a title="Twitter" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-twitter"></i></a>
+                    <a title="Pinterest" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+                    <a title="Instagram" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
                 </div>
             </div>
 

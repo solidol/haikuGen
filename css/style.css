@@ -1,26 +1,80 @@
-#parts td {
-    width: 5%;
-    height: 1em;
-    border: 1px solid black;
-    text-align: center;
-    font-family: "Arial Narrow";
+/* common */
+h1,h2{
+    margin: 0;
+    padding: 0;
 }
 
-table#parts {
-    margin: auto;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
+h1 {
+    font-family: "Han Zi";
 }
-
-
 body {
     text-align: center;
     padding: 0;
     margin: 0;
     background-color: #f0efe6;
 }
+@font-face {
+    font-family: "Han Zi";
+    src: url("../fonts/hanzi.ttf") format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
+.mainpaper {
+    max-width: 800px;
+    margin: auto;
+
+}
+
+header {
+    padding: 1em;
+}
+
+.hidden {
+    display: none;
+}
+
+.cl-red {
+    color: red;
+}
+
+/* ================================================ */
+/* btn */
+/* ================================================ */
+.btn{
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-top: 1px solid grey;
+    border-bottom: 1px solid grey;
+    border-left: none;
+    border-right: none;
+    background-color: none;
+    font-size: 1.2rem;
+}
+/* ================================================ */
+/* columns */
+/* ================================================ */
+.col-4 {
+    display: inline-block;
+    width: calc(33% - 10px);
+}
+.col-6 {
+    display: inline-block;
+    width: calc(50% - 10px);
+}
+.col-3 {
+    display: inline-block;
+    width: calc(25% - 10px);
+}
+.col-12 {
+    display: inline-block;
+    width: calc(100% - 10px);
+}
+
+
+/* ================================================ */
+/* page 1 */
+/* ================================================ */
 .row-bg-pv {
     margin: 1em;
 }
@@ -48,30 +102,23 @@ body {
 .row-bg-pv img.active {
     border: 3px solid red;
 }
-
-@font-face {
-    font-family: "Han Zi";
-    src: url("../fonts/hanzi.ttf") format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-h1 {
-    font-family: "Han Zi";
-}
-
-#canvas {
-    max-width: 500px;
-    max-height: 500px;
-    width: 100%;
+/* ================================================ */
+/* page 2 */
+/* ================================================ */
+#parts td {
+    width: 5%;
+    height: 1em;
     border: 1px solid black;
+    text-align: center;
+    font-family: "Arial Narrow";
 }
 
-
-.modal-dialog {
-    max-width: 620px;
+table#parts {
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
 }
-
 
 .table-string-line {
     background-color: #f0e3a5;
@@ -81,20 +128,19 @@ h1 {
     background-color: #d1f0a5;
 }
 
-.mainpaper {
-    max-width: 800px;
-    margin: auto;
+/* ================================================ */
+/* page 3 */
+/* ================================================ */
 
+
+#canvas {
+    max-width: 500px;
+    max-height: 500px;
+    width: 100%;
+    border: 1px solid black;
 }
 
-header {
-    padding: 1em;
-}
 
-.hidden {
-    display: none;
-}
 
-.cl-red {
-    color: red;
-}
+
+
