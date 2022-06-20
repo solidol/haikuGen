@@ -200,6 +200,7 @@
                         <button id="btngrayscale" type="button" class="btn col-3">Ggray</button>
                         <button id="btnblur" type="button" class="btn col-3">Blur</button>
                         <button id="btnposterize" type="button" class="btn col-3">Poster</button>
+                        <button id="btnreduce" type="button" class="btn col-3">Reduce</button>
                         
                     </div>
                     <div class="row">
@@ -237,7 +238,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.10 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.11 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>

@@ -17,11 +17,12 @@ let canvas;
 let touchDistX;
 let touchDistY;
 
-let filters = { 
-    'gray': false, 
+let filters = {
+    'gray': false,
     'noise': false,
     'blur': false,
-    'posterize': false 
+    'posterize': false,
+    'reduce': false
 };
 
 
@@ -55,10 +56,11 @@ function draw() {
         image(images[imgSelectedIndex], 0, 0, cnWidth, cnHeight);
 
         if (filters.gray) filter(GRAY);
-        if (filters.blur) filter(BLUR,2);
-        if (filters.posterize) filter(POSTERIZE ,10);
-        
-            textFont('Han Zi');
+        if (filters.blur) filter(BLUR, 2);
+        if (filters.posterize) filter(POSTERIZE, 10);
+        if (filters.reduce) filter(ERODE);
+
+        textFont('Han Zi');
         textAlign(LEFT, BOTTOM);
 
         for (let tItem of texts) {
@@ -280,13 +282,16 @@ document.addEventListener('DOMContentLoaded', function () {
         var dateTime = date + '_' + time;
         saveCanvas(canvas, dateTime, 'jpg');
     }
-    btngrayscale.onclick = function(){
-        filters.gray=!filters.gray;
+    btngrayscale.onclick = function () {
+        filters.gray = !filters.gray;
     }
-    btnblur.onclick = function(){
-        filters.blur=!filters.blur;
+    btnblur.onclick = function () {
+        filters.blur = !filters.blur;
     }
-    btnposterize.onclick = function(){
-        filters.posterize=!filters.posterize;
+    btnposterize.onclick = function () {
+        filters.posterize = !filters.posterize;
+    }
+    btnreduce.onclick = function () {
+        filters.reduce = !filters.reduce;
     }
 });
