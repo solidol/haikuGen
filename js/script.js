@@ -229,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
             btntoform.onclick();
         }
     }
-    inptext.onkeypress = function () {
+    inptext.onchange = function () {
         textCheck();
         prepareText();
     }

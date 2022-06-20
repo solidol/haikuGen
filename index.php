@@ -75,18 +75,9 @@
                 <h2>Введіть текст</h2>
                 <div class="row">
                     <form>
-                        <div class="form-group">
-                            <label for="inptext">Текст</label>
-                            <textarea class="form form-control  form-control-lg" id="inptext" rows="3"></textarea>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="cr">Автор</label>
-                            <input type="text" name="cr" id="cr" placeholder="Your Name" class="form form-control form-control-lg">
-                        </div>
-
-
-
+                        <textarea class="form form-control  form-control-lg" id="inptext" rows="3"></textarea>
+                        <h3>Автор</h3>
+                        <input type="text" name="cr" id="cr" placeholder="Your Name" class="form form-control form-control-lg">
                     </form>
                 </div>
                 <div class="row">
@@ -246,7 +237,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.9 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.10 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
