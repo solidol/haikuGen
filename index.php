@@ -14,14 +14,15 @@
 
     <!-- Scripts -->
 
-    <script src="./js/jquery.min.js" defer=""></script>
     <script src="./js/p5.min.js" defer=""></script>
     <script src="./js/script.js" defer=""></script>
+    <script src="./js/chief-slider.min.js" defer=""></script>
 
 
 
     <!-- Styles -->
     <link href="./css/all.min.css" rel="stylesheet">
+    <link href="./css/chief-slider.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
@@ -40,26 +41,36 @@
 
 
             <div id="page1" class="page">
-                <h2>Обреріть фон</h4>
-                <div class="modal-body">
-                    <div class="container-fluid">
-                        <div class="row-bg-pv">
-                            <?php
-                            for ($i = 1; $i <= 24; $i++) :
-                            ?>
-                                <img class="bg-preview" data-ind="<?= $i ?>" src="./assets/bg/<?= $i ?>.jpg">
-                            <?php
-                            endfor;
-                            ?>
+                <h2>Обреріть фон</h2>
+
+
+                <div class="container">
+
+                    <div class="slider">
+                        <div class="slider__container">
+                            <div class="slider__wrapper">
+                                <div class="slider__items">
+                                    <?php for ($sl = 0; $sl < 6; $sl++) : ?>
+                                        <div class="slider__item">
+
+                                            <?php for ($im = 1; $im <= 4; $im++) : ?>
+                                                <img class="bg-preview" data-ind="<?= $im + ($sl * 4) ?>" src="./assets/bg/<?= $im + ($sl * 4) ?>.jpg">
+                                            <?php endfor; ?>
+                                        </div>
+                                    <?php endfor; ?>
+                                </div>
+                            </div>
                         </div>
+                        <a href="#" class="slider__control" data-slide="prev"></a>
+                        <a href="#" class="slider__control" data-slide="next"></a>
+                    </div>
+
+                    <div class="modal-footer btn-group">
+                        <button id="btnupload" type="button" class="btn col-6"><i class="fa-solid fa-plus"></i></button>
+                        <button id="btntoform" type="button" class="btn col-6"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </div>
-                <div class="modal-footer btn-group">
-                    <button id="btnupload" type="button" class="btn col-6"><i class="fa-solid fa-square-plus"></i></button>
-                    <button id="btntoform" type="button" class="btn col-6"><i class="fa-solid fa-arrow-right"></i></button>
-                </div>
             </div>
-
             <div id="page2" class="page hidden">
                 <h2>Введіть текст</h2>
                 <div class="row">
@@ -235,7 +246,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.8 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.9 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>

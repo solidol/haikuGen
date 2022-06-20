@@ -37,9 +37,6 @@ function setup() {
     inptext.onkeypress = function () {
         textCheck();
     };
-
-    setEvents()
-
 }
 /*
 ава вава вав
@@ -111,7 +108,8 @@ function textCheck() {
 
     let regexpUa = /[ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*[ЇІУЕАОЄЯИЮ][ЙЦКНГҐ\'ШЩЗХФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЇІ]|[ЦКНГҐШЩЗХФВПРЛДЖЧСМТБ]?[ЇІУЕИАОЄЯИЮ]|Й[АІУЄЕО])/ig;
     let regexpRu = /[ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*[ЁУЕЫАОЭЯИЮ][ЙЦКНГШЩЗХЪФВПРЛДЖЧСМТЬБ]*?(?=$|[^А-ЯЁ]|[ЦКНГШЩЗХФВПРЛДЖЧСМТБ]?[ЁУЕЫАОЭЯИЮ]|Й[АИУЕО])/ig;
-    let regexpRes;
+    let regexpRes = regexpUa;
+    /*
     switch ($('html').first().attr('lang')) {
         case 'uk':
             regexpRes = regexpUa;
@@ -122,7 +120,7 @@ function textCheck() {
         default:
             regexpRes = regexpUa;
             break;
-    }
+    }*/
 
     let line1 = stringArray[0].match(regexpRes) || [];
     let line2 = stringArray[1].match(regexpRes) || [];
@@ -143,10 +141,17 @@ function textCheck() {
             }
 
 
+    let wpStringsLines = document.querySelectorAll(".table-string-line");
+
+
     if (sch1 ^ sch2 ^ sch3) {
-        $(".table-string-line").addClass("table-string-line-active");
+        for (item of wpStringsLines) {
+            item.classList.add('table-string-line-active');
+        }
     } else {
-        $(".table-string-line").removeClass("table-string-line-active");
+        for (item of wpStringsLines) {
+            item.classList.remove('table-string-line-active');
+        }
     }
 
 
@@ -196,7 +201,20 @@ function prepareText() {
 
 
 
-function setEvents() {
+
+
+// test if x,y is inside the bounding box of texts[textIndex]
+function textHittest(x, y, textIndex) {
+    let text = texts[textIndex];
+    return (x >= text.x && x <= text.x + text.width && y >= text.y - text.height && y <= text.y);
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const slider = new ChiefSlider('.slider', {
+        loop: false
+    });
+
     imgControls = document.querySelectorAll(".bg-preview");
     for (let element of imgControls) {
         element.onclick = function () {
@@ -242,10 +260,4 @@ function setEvents() {
     btndownload.onclick = function () {
         saveCanvas(canvas, 'myCanvas', 'jpg');
     }
-}
-
-// test if x,y is inside the bounding box of texts[textIndex]
-function textHittest(x, y, textIndex) {
-    let text = texts[textIndex];
-    return (x >= text.x && x <= text.x + text.width && y >= text.y - text.height && y <= text.y);
-}
+});

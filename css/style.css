@@ -1,5 +1,6 @@
 /* common */
-h1,h2{
+h1,
+h2 {
     margin: 0;
     padding: 0;
 }
@@ -7,12 +8,14 @@ h1,h2{
 h1 {
     font-family: "Han Zi";
 }
+
 body {
     text-align: center;
     padding: 0;
     margin: 0;
     background-color: #f0efe6;
 }
+
 @font-face {
     font-family: "Han Zi";
     src: url("../fonts/hanzi.ttf") format('truetype');
@@ -41,7 +44,7 @@ header {
 /* ================================================ */
 /* btn */
 /* ================================================ */
-.btn{
+.btn {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     border-top: 1px solid grey;
@@ -50,7 +53,9 @@ header {
     border-right: none;
     background-color: none;
     font-size: 1.2rem;
+    padding: 0.3rem;
 }
+
 /* ================================================ */
 /* columns */
 /* ================================================ */
@@ -58,14 +63,17 @@ header {
     display: inline-block;
     width: calc(33% - 10px);
 }
+
 .col-6 {
     display: inline-block;
     width: calc(50% - 10px);
 }
+
 .col-3 {
     display: inline-block;
     width: calc(25% - 10px);
 }
+
 .col-12 {
     display: inline-block;
     width: calc(100% - 10px);
@@ -75,33 +83,52 @@ header {
 /* ================================================ */
 /* page 1 */
 /* ================================================ */
-.row-bg-pv {
-    margin: 1em;
+
+
+
+
+.container {
+    max-width: 80%;
+    margin: 0 auto;
 }
 
-.row-bg-pv div {
-    padding: 10px;
-    border: 1px solid grey;
-    border-radius: 3px;
+.slider__container {
+    padding-left: 0;
+    padding-right: 0;
 }
 
-.row-bg-pv img {
+.slider__items {
+    counter-reset: slide;
+}
+
+.slider__item {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+    counter-increment: slide;
+
+    position: relative;
+}
+
+.slider__item img {
     display: inline-block;
-    width: 22%;
+    width: 40%;
     height: auto;
-    margin: 2px;
+    margin: 0.5rem;
     border: 3px solid grey;
     border-radius: 6px;
     border-radius: calc(100% / 30 + 5px);
 }
 
-.row-bg-pv img:hover{
+.slider__item img:hover {
     border: 3px solid black;
 }
 
-.row-bg-pv img.active {
+.slider__item img.active {
     border: 3px solid red;
 }
+
 /* ================================================ */
 /* page 2 */
 /* ================================================ */
@@ -139,8 +166,3 @@ table#parts {
     width: 100%;
     border: 1px solid black;
 }
-
-
-
-
-
