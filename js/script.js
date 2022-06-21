@@ -72,6 +72,7 @@ function draw() {
 
         }
     }
+    noLoop();
 }
 
 function keyPressed() {
@@ -84,6 +85,7 @@ function touchMoved() {
         texts[selectedText].x = mouseX - touchDistX;
         texts[selectedText].y = mouseY - touchDistY;
     }
+    loop();
 }
 
 function touchStarted() {
@@ -98,6 +100,7 @@ function touchStarted() {
 
 function touchEnded() {
     selectedText = -1;
+    loop();
 }
 
 
@@ -225,10 +228,22 @@ function textHittest(x, y, textIndex) {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    const slider = new ChiefSlider('.slider', {
-        loop: false
-    });
 
+    var glide = new Glide('#bgcar', {
+        type: 'carousel',
+        perView: 4,
+        focusAt: 'center',
+        breakpoints: {
+            800: {
+                perView: 2
+            },
+            480: {
+                perView: 1
+            }
+        }
+    })
+
+    glide.mount()
     imgControls = document.querySelectorAll(".bg-preview");
     for (let element of imgControls) {
         element.onclick = function () {
@@ -272,10 +287,6 @@ document.addEventListener('DOMContentLoaded', function () {
         page1.classList.remove("hidden");
     }
     btndownload.onclick = function () {
-
-        2
-        3
-        4
         var today = new Date();
         var date = today.getFullYear() + '' + (today.getMonth() + 1) + today.getDate();
         var time = today.getHours() + '' + today.getMinutes() + today.getSeconds();
@@ -284,14 +295,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     btngrayscale.onclick = function () {
         filters.gray = !filters.gray;
+        loop();
     }
     btnblur.onclick = function () {
         filters.blur = !filters.blur;
+        loop();
     }
     btnposterize.onclick = function () {
         filters.posterize = !filters.posterize;
+        loop();
     }
     btnreduce.onclick = function () {
         filters.reduce = !filters.reduce;
+        loop();
     }
 });

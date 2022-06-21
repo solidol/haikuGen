@@ -16,13 +16,13 @@
 
     <script src="./js/p5.min.js" defer=""></script>
     <script src="./js/script.js" defer=""></script>
-    <script src="./js/chief-slider.min.js" defer=""></script>
 
 
+    <script src="./js/glide.min.js"></script>
 
     <!-- Styles -->
     <link href="./css/all.min.css" rel="stylesheet">
-    <link href="./css/chief-slider.min.css" rel="stylesheet">
+    <link href="./css/glide.core.min.css" rel="stylesheet">
     <link href="./css/style.css" rel="stylesheet">
 </head>
 
@@ -40,24 +40,20 @@
         <main role="main">
             <div id="page1" class="page">
                 <h2>Обреріть фон</h2>
-                <div class="container">
-                    <div class="slider">
-                        <div class="slider__container">
-                            <div class="slider__wrapper">
-                                <div class="slider__items">
-                                    <?php for ($sl = 0; $sl < 6; $sl++) : ?>
-                                        <div class="slider__item">
 
-                                            <?php for ($im = 1; $im <= 4; $im++) : ?>
-                                                <img class="bg-preview" data-ind="<?= $im + ($sl * 4) ?>" src="./assets/bg/<?= $im + ($sl * 4) ?>.jpg">
-                                            <?php endfor; ?>
-                                        </div>
+                <div id="bgcar">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <?php for ($sl = 0; $sl < 6; $sl++) : ?>
+                                <li class="glide__slide">
+
+                                    <?php for ($im = 1; $im <= 4; $im++) : ?>
+                                        <img class="bg-preview" data-ind="<?= $im + ($sl * 4) ?>" src="./assets/bg/<?= $im + ($sl * 4) ?>.jpg">
                                     <?php endfor; ?>
-                                </div>
-                            </div>
-                        </div>
-                        <a href="#" class="slider__control" data-slide="prev"></a>
-                        <a href="#" class="slider__control" data-slide="next"></a>
+                                </li>
+                            <?php endfor; ?>
+
+                        </ul>
                     </div>
                 </div>
                 <div class="row">
@@ -201,7 +197,7 @@
                         <button id="btnblur" type="button" class="btn col-3">Blur</button>
                         <button id="btnposterize" type="button" class="btn col-3">Poster</button>
                         <button id="btnreduce" type="button" class="btn col-3">Reduce</button>
-                        
+
                     </div>
                     <div class="row">
                         <button id="btnbacktoform" type="button" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
@@ -238,7 +234,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.11 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.8.13 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>

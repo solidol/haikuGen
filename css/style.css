@@ -42,6 +42,10 @@ header {
     color: red;
 }
 
+
+
+
+
 /* ================================================ */
 /* btn */
 /* ================================================ */
@@ -87,32 +91,7 @@ header {
 
 
 
-
-.container {
-    max-width: 80%;
-    margin: 0 auto;
-}
-
-.slider__container {
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.slider__items {
-    counter-reset: slide;
-}
-
-.slider__item {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 100%;
-    flex: 0 0 100%;
-    max-width: 100%;
-    counter-increment: slide;
-
-    position: relative;
-}
-
-.slider__item img {
+.glide__slide img {
     display: inline-block;
     width: 40%;
     height: auto;
@@ -122,11 +101,11 @@ header {
     border-radius: calc(100% / 30 + 5px);
 }
 
-.slider__item img:hover {
+.glide__slide img:hover {
     border: 3px solid black;
 }
 
-.slider__item img.active {
+.glide__slide img.active {
     border: 3px solid red;
 }
 
