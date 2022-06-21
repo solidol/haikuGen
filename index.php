@@ -39,30 +39,7 @@
         </header>
         <main role="main">
             <div id="page1" class="page">
-                <h2>Обреріть фон</h2>
-
-                <div id="bgcar">
-                    <div class="glide__track" data-glide-el="track">
-                        <ul class="glide__slides">
-                            <?php for ($sl = 0; $sl < 6; $sl++) : ?>
-                                <li class="glide__slide">
-
-                                    <?php for ($im = 1; $im <= 4; $im++) : ?>
-                                        <img class="bg-preview" data-ind="<?= $im + ($sl * 4) ?>" src="./assets/bg/<?= $im + ($sl * 4) ?>.jpg">
-                                    <?php endfor; ?>
-                                </li>
-                            <?php endfor; ?>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="row">
-                    <button id="btnupload" type="button" class="btn col-6"><i class="fa-solid fa-plus"></i></button>
-                    <button id="btntoform" type="button" class="btn col-6"><i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-            </div>
-            <div id="page2" class="page hidden">
-                <h2>Введіть текст</h2>
+            <h2>Введіть текст</h2>
                 <div class="row">
                     <form>
                         <textarea class="form form-control  form-control-lg" id="inptext" rows="3"></textarea>
@@ -178,14 +155,27 @@
                         </tbody>
                     </table>
                 </div>
+                <h2>Обреріть фон</h2>
+                <div id="bgcar">
+                    <div class="glide__track" data-glide-el="track">
+                        <ul class="glide__slides">
+                            <?php for ($im = 1; $im <= 24; $im++) : ?>
+                                <li class="glide__slide">
+                                    <img class="bg-preview" data-ind="<?= $im ?>" src="./assets/bg/<?= $im ?>.jpg">
+                                </li>
+                            <?php endfor; ?>
+                        </ul>
+                    </div>
+                </div>
                 <div class="row">
-                    <button type="button" id="btnchosebg1" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
+                    <button id="btnupload" type="button" class="btn col-4"><i class="fa-solid fa-plus"></i></button>
                     <button type="button" id="btnresetform" class="btn col-4"><i class="fa-solid fa-recycle"></i></button>
                     <button type="button" id="btnedit" class="btn col-4"><i class="fa-solid fa-arrow-right"></i></button>
                 </div>
             </div>
 
-            <div id="page3" class="page hidden">
+
+            <div id="page2" class="page hidden">
                 <h2>Збережіть</h2>
                 <div id="canvasdiv" class="row">
 
@@ -200,9 +190,8 @@
 
                     </div>
                     <div class="row">
-                        <button id="btnbacktoform" type="button" class="btn col-4"><i class="fa-solid fa-arrow-left"></i></button>
-                        <button id="btnchosebg2" type="button" class="btn col-4"><i class="fa-solid fa-arrows-rotate"></i></button>
-                        <button id="btndownload" type="button" class="btn col-4"><i class="fa-solid fa-angles-down"></i></button>
+                        <button id="btnchosebg" type="button" class="btn col-6"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="btndownload" type="button" class="btn col-6"><i class="fa-solid fa-angles-down"></i></button>
                     </div>
                 </div>
 
@@ -234,7 +223,7 @@
 
         <footer>
 
-            <div class="footer-col"><span>HaikuGen 0.8.13 © Levytskyi Viktor</span></div>
+            <div class="footer-col"><span>HaikuGen 0.9.1 © Levytskyi Viktor</span></div>
             <div class="footer-col">
                 <div class="social-bar-wrap">
                     <a title="Facebook" href="http://levitsky.pp.ua/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>

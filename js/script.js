@@ -234,11 +234,11 @@ document.addEventListener('DOMContentLoaded', function () {
         perView: 4,
         focusAt: 'center',
         breakpoints: {
-            800: {
-                perView: 2
+            640: {
+                perView: 8
             },
             480: {
-                perView: 1
+                perView: 4
             }
         }
     })
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', function () {
         };
         element.ondblclick = function () {
             this.onclick();
-            btntoform.onclick();
+            btnedit.onclick();
         }
     }
     inptext.onchange = function () {
@@ -263,29 +263,17 @@ document.addEventListener('DOMContentLoaded', function () {
         prepareText();
     }
 
-    btntoform.onclick = function () {
-
-        page1.classList.add("hidden");
-        page2.classList.remove("hidden");
-    }
     btnedit.onclick = function () {
         textCheck();
         prepareText();
-        page2.classList.add("hidden");
-        page3.classList.remove("hidden");
-    }
-    btnchosebg1.onclick = function () {
-        page2.classList.add("hidden");
-        page1.classList.remove("hidden");
-    }
-    btnbacktoform.onclick = function () {
-        page3.classList.add("hidden");
+        page1.classList.add("hidden");
         page2.classList.remove("hidden");
     }
-    btnchosebg2.onclick = function () {
-        page3.classList.add("hidden");
+    btnchosebg.onclick = function () {
+        page2.classList.add("hidden");
         page1.classList.remove("hidden");
     }
+
     btndownload.onclick = function () {
         var today = new Date();
         var date = today.getFullYear() + '' + (today.getMonth() + 1) + today.getDate();
